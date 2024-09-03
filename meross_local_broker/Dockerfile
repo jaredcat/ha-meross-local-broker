@@ -6,7 +6,7 @@ ARG BUILD_ARCH
 
 # Versions
 ENV HIVEMQ='b2043e7fcbd5897a3799869d42c6202122221fbc' \
-  LIBWEBSOCKETS='3.1.0' \
+  LIBWEBSOCKETS='4.3.3' \
   MOSQUITTO='2.0.10' \
   MOSQUITTO_GO_AUTH='1.5.0' \
   MOSQUTTO_DISCONNECT='0.0.1' \
@@ -130,7 +130,7 @@ RUN mkdir -p /tmp/go \
 
 # Copy the requirements.txt file and install the listed packages
 COPY rootfs/opt/custom_broker/requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt --break-system-packages
 
 WORKDIR /
 COPY rootfs /
