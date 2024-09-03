@@ -31,7 +31,7 @@ RUN apt-get install --no-install-recommends -y \
   python3-dev \
   dbus \
   bash \
-  sqlite \
+  sqlite3 \
   curl \
   socat \
   openssl \
