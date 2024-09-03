@@ -10,7 +10,7 @@ ENV HIVEMQ='b2043e7fcbd5897a3799869d42c6202122221fbc' \
   MOSQUITTO='2.0.10' \
   MOSQUITTO_GO_AUTH='1.5.0' \
   MOSQUTTO_DISCONNECT='0.0.1' \
-  GOVERSION=1.16.4
+  GOVERSION=1.23.0
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -20,9 +20,9 @@ WORKDIR /usr/src
 
 # Install base dependencies
 # hadolint ignore=DL3003
-RUN apt-get update -y
-RUN apt-get install --no-install-recommends -y gnupg gpg-agent
-RUN apt-get install --no-install-recommends -y \
+RUN apt-get update -y \
+&& apt-get install --no-install-recommends -y gnupg gpg-agent \
+&& apt-get install --no-install-recommends -y \
   build-essential \
   git \
   cmake \
