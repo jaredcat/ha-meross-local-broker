@@ -20,9 +20,9 @@ WORKDIR /usr/src
 
 # Install base dependencies
 # hadolint ignore=DL3003
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install --no-install-recommends -y gnupg gpg-agent
-RUN apt-get --no-install-recommends install -y \
+RUN apt-get install --no-install-recommends -y \
   build-essential \
   git \
   cmake \
