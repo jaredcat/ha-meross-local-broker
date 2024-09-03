@@ -45,7 +45,7 @@ RUN apt-get install --no-install-recommends -y \
   libglib2.0-0 \
   libglib2.0-dev \
   libdbus-1-dev
-RUN pip3 install wheel
+RUN pip3 install wheel --break-system-packages
 
 # Setup GO source # export GOARM=7 ;
 RUN mkdir -p /tmp/go \
