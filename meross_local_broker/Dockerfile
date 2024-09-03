@@ -20,9 +20,9 @@ WORKDIR /usr/src
 
 # Install base dependencies
 # hadolint ignore=DL3003
-RUN apt-get update \
-  && apt-get install --no-install-recommends -y gnupg gpg-agent \
-  && apt-get --no-install-recommends install -y \
+RUN apt-get update
+RUN apt-get install --no-install-recommends -y gnupg gpg-agent
+RUN apt-get --no-install-recommends install -y \
   build-essential \
   git \
   cmake \
@@ -44,8 +44,8 @@ RUN apt-get update \
   logrotate \
   libglib2.0-0 \
   libglib2.0-dev \
-  libdbus-1-dev \
-  && pip3 install wheel
+  libdbus-1-dev
+RUN pip3 install wheel
 
 # Setup GO source # export GOARM=7 ;
 RUN mkdir -p /tmp/go \
