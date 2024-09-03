@@ -1,8 +1,8 @@
 name: Builder
 
 env:
-  BUILD_ARGS: ''
-  MONITORED_FILES: 'build.yaml config.yaml Dockerfile rootfs addon_web_ui'
+  BUILD_ARGS: ""
+  MONITORED_FILES: "build.yaml config.yaml Dockerfile rootfs addon_web_ui"
 
 on:
   push:
@@ -18,8 +18,8 @@ jobs:
     name: Build ${{ matrix.arch }} ${{ matrix.addon }} add-on
     strategy:
       matrix:
-        addon: ['meross_local_broker']
-        arch: ['aarch64', 'amd64', 'armhf', 'armv7', 'i386']
+        addon: ["meross_local_broker"]
+        arch: ["aarch64", "amd64", "armhf", "armv7", "i386"]
 
     steps:
       - name: Check out repository
@@ -29,7 +29,7 @@ jobs:
         id: info
         uses: home-assistant/actions/helpers/info@master
         with:
-          path: './${{ matrix.addon }}'
+          path: "./${{ matrix.addon }}"
 
       - name: Login to GitHub Container Registry
         if: env.BUILD_ARGS != '--test'
@@ -48,7 +48,7 @@ jobs:
       - name: npm install and npm run build
         working-directory: meross_local_broker/addon_web_ui
         run: |
-          npm i
+          npm install --legacy-peer-deps
           npm run-script build
 
       - name: Build ${{ matrix.addon }} add-on
