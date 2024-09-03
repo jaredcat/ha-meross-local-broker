@@ -44,8 +44,7 @@ def sign_in(api_payload: Dict, *args, **kwargs):
         "userid": str(user.user_id),
         "email": str(user.email),
         "domain": str(request.scheme + "://" + request.host),
-        "mqttDomain": "",
-        "mfaLockExpire": 0
+        "mqttDomain": ""
     }
     return make_api_response(data=data)
 
