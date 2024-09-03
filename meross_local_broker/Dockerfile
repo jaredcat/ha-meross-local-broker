@@ -7,8 +7,8 @@ ARG BUILD_ARCH
 # Versions
 ENV HIVEMQ='b2043e7fcbd5897a3799869d42c6202122221fbc' \
   LIBWEBSOCKETS='4.3.3' \
-  MOSQUITTO='2.0.10' \
-  MOSQUITTO_GO_AUTH='1.5.0' \
+  MOSQUITTO='2.0.18' \
+  MOSQUITTO_GO_AUTH='1.9.1' \
   MOSQUTTO_DISCONNECT='0.0.1' \
   GOVERSION=1.23.0
 
@@ -111,8 +111,7 @@ RUN mkdir -p /tmp/go \
   && mkdir -p /usr/share/mosquitto \
   && cp /usr/local/lib/mosquitto_disconnections.so /usr/share/mosquitto/mosquitto_disconnections.so \
   && cd /tmp \
-  && git clone --depth 1 --branch "${MOSQUITTO_GO_AUTH}" \
-  https://github.com/iegomez/mosquitto-go-auth.git \
+  && git clone --depth 1 --branch "${MOSQUITTO_GO_AUTH}" https://github.com/iegomez/mosquitto-go-auth.git \
   && export GOPROXY='direct' \
   && cd mosquitto-go-auth \
   && make CFLAGS="-I/usr/local/include -fPIC" LDFLAGS="-shared -Wl,-unresolved-symbols=ignore-all" \
